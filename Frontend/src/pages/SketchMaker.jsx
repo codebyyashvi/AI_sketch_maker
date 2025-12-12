@@ -242,7 +242,6 @@ export default function SketchMaker() {
             value={form.clothing}
             onChange={(e) => updateForm("clothing", e.target.value)}
           >
-            <option>Indian Saari</option>
             <option>T-shirt</option>
             <option>shirt</option>
             <option>Kurta</option>

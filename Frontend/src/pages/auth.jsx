@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
+
 
 // TODO: Replace with your Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCW-4KPsovJCo0etwWCbxrjwl_ZM1A3_Oc",
+  apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
   authDomain: "ai-sketch-maker.firebaseapp.com",
   projectId: "ai-sketch-maker",
   storageBucket: "ai-sketch-maker.firebasestorage.app",
@@ -15,7 +16,7 @@ const firebaseConfig = {
   measurementId: "G-9W1GG45SSC"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 

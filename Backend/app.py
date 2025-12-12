@@ -118,9 +118,10 @@ def generate():
         # Generate image
         answers = generator.generate(
             prompt=prompt_text,
-            steps=30,
             width=1024,
-            height=1024
+            height=1024,
+            steps=50,
+            cfg_scale=8.0
         )
 
         # Extract and return base64
